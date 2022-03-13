@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package src;
-
+import java.util.Scanner;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -21,8 +21,21 @@ public class Main extends javax.swing.JFrame {
      * Creates new form Calculation
      */
     public Main() {
-        initComponents();
-        
+        System.out.println("Please enter an equation: ");
+        Scanner scanner = new Scanner(System.in);
+        String equation = scanner.nextLine();
+        System.out.println("Your string: " + equation);
+
+        InputStream stream = new ByteArrayInputStream(equation.getBytes(StandardCharsets.UTF_8));
+        Lexer l = new Lexer(stream);
+        parser p = new parser(l);
+
+        try {
+            Token result = (Token) p.parse().value;
+            System.out.println("\n Answer: " + result.getValue());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
