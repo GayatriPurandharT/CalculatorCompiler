@@ -21,4 +21,46 @@ public class Token {
         this.postfix = postfix;
         this.infix = infix;
     }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
+    public String getPostfix() {
+        return postfix;
+    }
+
+    public void setPostfix(String postfix) {
+        this.postfix = postfix;
+    }
+
+    public String getInfix() {
+        return infix;
+    }
+
+    public void setInfix(String infix) {
+        this.infix = infix;
+    }
+
+    @Override
+    public String toString() {
+        return "Token{" +
+                "value=" + value +
+                ", prefix='" + prefix + '\'' +
+                ", postfix='" + postfix + '\'' +
+                ", infix='" + infix + '\'' +
+                '}';
+    }
 }
